@@ -2,16 +2,29 @@ package main
 
 import "fmt"
 
-func printMessage(flag int) {
-	if flag == 0 {
-		fmt.Println("printing 0")
-	} else if flag == 1 {
-		fmt.Println("printing 1")
-	}
+type Person struct {
+	firstName string
+	lastName  string
+}
+
+func printPerson(p Person) {
+	printPersonPointer(&p)
+}
+
+func printPersonPointer(p *Person) {
+	fmt.Println(p.firstName)
+	fmt.Println(p.lastName)
 }
 
 func main() {
-	defer printMessage(1)
-	fmt.Println("In main")
-	return
+	p := new(Person)
+	p.firstName = "test"
+	p.lastName = "name"
+	printPersonPointer(p)
+
+	var v Person
+	v.firstName = "test2"
+	v.lastName = "name2"
+
+	printPerson(v)
 }
