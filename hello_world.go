@@ -2,12 +2,16 @@ package main
 
 import "fmt"
 
-func multiReturn() (returnInt int) {
-	returnInt = 50
-	return
+func printMessage(flag int) {
+	if flag == 0 {
+		fmt.Println("printing 0")
+	} else if flag == 1 {
+		fmt.Println("printing 1")
+	}
 }
 
 func main() {
-	x := multiReturn()
-	fmt.Printf("x %d", x)
+	defer printMessage(1)
+	fmt.Println("In main")
+	return
 }
