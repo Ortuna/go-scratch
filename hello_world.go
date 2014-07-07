@@ -2,11 +2,12 @@ package main
 
 import "fmt"
 
-func multiReturn() (int, string) {
-	return 1, "Some string"
+func multiReturn() (returnInt int) {
+	returnInt = 50
+	return
 }
 
 func main() {
-	x, y := multiReturn()
-	fmt.Printf("x %d, y %s", x, y)
+	x := multiReturn()
+	fmt.Printf("x %d", x)
 }
